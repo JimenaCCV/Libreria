@@ -2,18 +2,6 @@ import type { Request, Response } from "express";
 import type { BookService } from "../services/BookService.js";
 import type { BookFilters } from "../models/Book.js";
 
-/**
- * REQ-02 a REQ-08 (capa HTTP)
- *
- * El Controller es la única capa que conoce Express (req/res, status
- * codes, headers). Traduce la solicitud HTTP en una llamada al Service
- * y traduce el resultado del Service en una respuesta HTTP.
- *
- * No contiene reglas de negocio ni accede al almacenamiento
- * directamente: todo eso vive en Service/Repository. Tampoco contiene
- * try/catch: los errores se delegan a `asyncHandler` + el middleware
- * central de errores (REQ-09).
- */
 export class BookController {
   constructor(private readonly bookService: BookService) {}
 

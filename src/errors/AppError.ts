@@ -1,12 +1,4 @@
-/**
- * REQ-09 · Manejo centralizado de errores
- *
- * Clase base de error de aplicación. Cualquier capa (Service, Repository)
- * puede lanzar un AppError (o una subclase) con un `statusCode` HTTP
- * explícito. El middleware de errores (errorHandler.ts) es el único
- * lugar que traduce esto a una respuesta HTTP, así los Controllers no
- * tienen que repetir try/catch con lógica de status codes.
- */
+
 export class AppError extends Error {
   public readonly statusCode: number;
   public readonly details?: unknown;

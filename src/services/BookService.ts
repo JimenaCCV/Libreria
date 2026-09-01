@@ -2,14 +2,7 @@ import type { Book, BookFilters, CreateBookDTO, UpdateBookDTO } from "../models/
 import type { BookRepository } from "../repositories/BookRepository.js";
 import { NotFoundError, ValidationError } from "../errors/AppError.js";
 
-/**
- * REQ-05 · Validación de datos
- *
- * Reglas de validación de negocio. Viven fuera del Repository (que solo
- * sabe leer/escribir) y fuera del Controller (que solo sabe de HTTP).
- * Se exportan como funciones puras para poder reutilizarlas en create()
- * y en update() y para poder probarlas de forma aislada.
- */
+
 function validateTitle(title: unknown): string {
   if (typeof title !== "string" || title.trim().length === 0) {
     throw new ValidationError("El título es obligatorio y no puede estar vacío o compuesto solo por espacios.");

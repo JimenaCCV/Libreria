@@ -1,16 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 import { AppError } from "../errors/AppError.js";
 
-/**
- * REQ-09 · Manejo centralizado de errores
- *
- * Middleware de error de Express (firma de 4 parámetros). Es el único
- * lugar del proyecto que decide qué status code y qué forma de JSON se
- * envía al cliente cuando algo falla, sin importar en qué capa se haya
- * originado el error (Service, Repository, o un error inesperado).
- *
- * Debe registrarse DESPUÉS de todas las rutas en app.ts.
- */
+
 export function errorHandler(
   err: unknown,
   _req: Request,
